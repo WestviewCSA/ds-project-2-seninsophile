@@ -1,0 +1,21 @@
+Design Plan - P2
+Due: 3/12/25 11:59pm
+
+1) Reading the specs - understand the problem
+2) Understand the map-based input files
+	- @ = wall
+	- . = empty tile
+	- $ = end goal (buck)
+	- W = character; wolverine
+	- | = open walkway
+	- Note that character (W) is never allowed to move diagonal, only up, down, left or right.
+3) Understand the coordinate system
+	- (Row, Col, Maze Level)
+		EX: $ 2 2 0 (Buck is @ the second row, second column and on the 0th level.)
+4) Code 3 different approaches, one using Stack, one using Queue, and one using any way
+   to find the most optimal path to the buck or pathway
+5) Output/input the file in one of two ways
+	- Coordinate System
+6) Measure runtime
+	
+	
