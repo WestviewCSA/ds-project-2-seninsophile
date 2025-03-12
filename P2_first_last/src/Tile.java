@@ -30,7 +30,9 @@ public class Tile {
 		this.type = type;
 	}
 	
-	
+	public String toString() {
+		return getType() + "";
+	}
 	
 	
 }
