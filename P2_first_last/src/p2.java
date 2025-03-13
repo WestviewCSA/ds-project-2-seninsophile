@@ -3,7 +3,8 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class p2 {
+public class p2 {	
+	public static Queue<Tile> maze;
 	
 	public static void main(String[] args) {
 		readMap("Example 2");
@@ -23,17 +24,18 @@ public class p2 {
 			
 			int r = 0;
 			
-			Tile[][] map = new Tile[numRows][numCols];
-			
 			while(scanner.hasNextLine()) {
 				String row = scanner.nextLine();	
 				if(row.length()>0) {	
-					for(int i = 0 ; i < numCols && i < row.length(); i++) {
-						char el = row.charAt(i);
-						Tile obj = new Tile(r, i, el);
-						map[r][i] = obj;
+					for(int i = 0 ; i < row.length(); i++) {
+						for(int c = 0; c < numCols; c++) {
+							char el = row.charAt(i);
+							Tile tile = new Tile(i, c, el);
+							if() {
+								
+							}
+						}			
 					}
-					System.out.println(Arrays.deepToString(map));
 				}
 			}
 			scanner.close();
