@@ -11,7 +11,6 @@ public class p2 {
 	}
 	
 	public static void main(String[] args) {
-		
 		readMap("Example 2");
 	}
 	
@@ -22,8 +21,7 @@ public class p2 {
 		try {
 			File file = new File(filename);
 			Scanner scanner = new Scanner(file);
-			Queue<Tile> maze = new Queue<Tile>();
-			
+		
 			int numRows 	= scanner.nextInt();
 			int numCols 	= scanner.nextInt();
 			int numRooms 	= scanner.nextInt();
@@ -36,31 +34,12 @@ public class p2 {
 					for(int i = 0 ; i < row.length() && i < numCols; i++) {
 						char el = row.charAt(i);
 						Tile tile = new Tile(r, i, el);
-						
-						if(tile.toString().equals("W")) {
-							maze.enqueue(tile);
-						} else {
-							maze.dequeue();
-						}
-						System.out.print(maze.toString());
 					}
 				}
 			}
 			scanner.close();
 		} catch (FileNotFoundException e) {
 			System.out.println(e);
-		} catch (NullPointerException e) {
-			System.out.println(e);
-		}
-		
-		
+		}	
 	}
-	
-	
-	
-	
-	
-	
-	
-
 }
