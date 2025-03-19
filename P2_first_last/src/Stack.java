@@ -5,7 +5,7 @@ public class Stack<J> {
 	// data
 	private ArrayList<J> data;
 	
-	//add a constructor
+	// add a constructor
 	
 	public Stack(){
 		// init private instance var

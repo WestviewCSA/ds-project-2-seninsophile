@@ -5,9 +5,12 @@ public class Tile {
 	private char type;
 	
 	public Tile(int row, int col, char type) {
-		super();
 		this.row = row;
 		this.col = col;
+		this.type = type;
+	}
+	
+	public Tile(char type) {
 		this.type = type;
 	}
 	
