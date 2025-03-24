@@ -33,6 +33,13 @@ public class Tile {
 		this.type = type;
 	}
 	
+	public boolean isWalkable() {
+		if(type=='.') {
+			return true;
+		}
+		return false;
+	}
+	
 	public String toString() {
 		return getType() + "";
 	}

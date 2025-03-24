@@ -34,10 +34,26 @@ public class p2 {
 				String row = scanner.nextLine();	
 				if(row.length()>0) {	
 					for(int i = 0 ; i < row.length() && i < numCols; i++) {
-						char el = row.charAt(i);
-						Tile tile = new Tile(r, i, el);
-						maze.setData(r, i, 1, tile);
-						qMaze.enqueue(maze.getBeginning());
+						for(int a = 0 ; a < numRooms; a++) {
+							char el = row.charAt(i);
+							Tile tile = new Tile(r, i, el);
+							maze.setData(r, i, a, tile);
+							if(maze.getData(r, i, a).getType()==('$')){
+								System.out.println(qMaze);
+							} else {
+								if(maze.getData(r, i, a).getType()==('W')) {
+									qMaze.enqueue(tile);
+									qMaze.dequeue();
+									System.out.println(qMaze);
+								}
+								
+								if(maze.getData(r, i, a).isWalkable()) {
+									qMaze.enqueue(tile);
+									System.out.println(qMaze);
+									System.out.println(qa);
+								}
+							}
+						}
 					}
 					r++;
 				}
