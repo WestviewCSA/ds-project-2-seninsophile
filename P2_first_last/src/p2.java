@@ -4,12 +4,16 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class p2 {	
+	
+	
 	public static Map maze;
+	
 	
 	public static int numRows, numCols, numRooms;
 	
 	public static void main(String[] args) {
 		readMap("Example 2");
+		queueRoute();
 	}
 	
 	/*
@@ -59,20 +63,33 @@ public class p2 {
 	
 	public static void queueRoute() {
 		
-		Queue queue = new Queue<Tile>();
-		Queue visited = new Queue<Tile>();
+		Queue<Tile> queue = new Queue<Tile>();
+		Queue<Tile> visited = new Queue<Tile>();
+		
+		// get beginning of maze
 		
 		for(int a = 0 ; a < numRooms; a++) {
 			for(int b = 0 ; b < numRows; b++) {
 				for(int c = 0 ; c < numCols; c++) {
-					char el = maze
+					char el = maze.getData(b, c, a).getType();
 					Tile tile = new Tile(b, c, el);
 					if(maze.getData(b, c, a).getType()==('W')) {
-						queue.enqueue(Tile);
+						queue.enqueue(tile);
+						visited.enqueue(tile);
 					}
 				}
 			}
 		}
 		
+		// until coin is found do this
+		
+		while(queue.peek().getType()!='$') {
+
+			
+			
+			
+			
+			
+		}
 	}
 }

@@ -10,10 +10,6 @@ public class Tile {
 		this.type = type;
 	}
 	
-	public Tile(char type) {
-		this.type = type;
-	}
-	
 	public int getRow() {
 		return row;
 	}
