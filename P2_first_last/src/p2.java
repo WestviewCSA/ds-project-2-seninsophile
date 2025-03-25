@@ -4,13 +4,11 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class p2 {	
-	public static Queue<Tile> qMaze;
-	public static Stack<Tile> sMaze;
 	public static Map maze;
 	
+	public static int numRows, numCols, numRooms;
+	
 	public static void main(String[] args) {
-		qMaze = new Queue<Tile>();
-		sMaze = new Stack<Tile>();
 		readMap("Example 2");
 	}
 	
@@ -22,9 +20,9 @@ public class p2 {
 			File file = new File(filename);
 			Scanner scanner = new Scanner(file);
 		
-			int numRows 	= scanner.nextInt();
-			int numCols 	= scanner.nextInt();
-			int numRooms 	= scanner.nextInt();
+			numRows 	= scanner.nextInt();
+			numCols 	= scanner.nextInt();
+			numRooms 	= scanner.nextInt();
 			
 			maze = new Map(numRows, numCols, numRooms);
 			
@@ -38,21 +36,6 @@ public class p2 {
 							char el = row.charAt(i);
 							Tile tile = new Tile(r, i, el);
 							maze.setData(r, i, a, tile);
-							if(maze.getData(r, i, a).getType()==('$')){
-								System.out.println(qMaze);
-							} else {
-								if(maze.getData(r, i, a).getType()==('W')) {
-									qMaze.enqueue(tile);
-									qMaze.dequeue();
-									System.out.println(qMaze);
-								}
-								
-								if(maze.getData(r, i, a).isWalkable()) {
-									qMaze.enqueue(tile);
-									System.out.println(qMaze);
-									System.out.println(qa);
-								}
-							}
 						}
 					}
 					r++;
@@ -66,5 +49,30 @@ public class p2 {
 	
 	public static void readCoordMap(String filename) {
 		return;
+	}
+	
+	public static void stackRoute() {
+		
+		return;	
+		
+	}
+	
+	public static void queueRoute() {
+		
+		Queue queue = new Queue<Tile>();
+		Queue visited = new Queue<Tile>();
+		
+		for(int a = 0 ; a < numRooms; a++) {
+			for(int b = 0 ; b < numRows; b++) {
+				for(int c = 0 ; c < numCols; c++) {
+					char el = maze
+					Tile tile = new Tile(b, c, el);
+					if(maze.getData(b, c, a).getType()==('W')) {
+						queue.enqueue(Tile);
+					}
+				}
+			}
+		}
+		
 	}
 }

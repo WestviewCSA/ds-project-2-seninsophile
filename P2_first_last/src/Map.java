@@ -8,11 +8,6 @@ public class Map {
 	
 	private Tile[][][] data; // [numRows][numCols][numRoom ("Slices")]
 	private int r1, c, r2;
-	private final char wolf = 'W';
-	private final char wall = '@';
-	private final char tile = '.';
-	private final char coin = '$';
-	private final char walk = '|';
 	
 	public Map(int r1, int c, int r2) {
 		this.r1 = r1;
@@ -27,6 +22,14 @@ public class Map {
 	
 	public Tile getData(int r, int c, int r1) {
 			return data[r][c][r1];
+	}
+	
+	public Tile[] getRow(int n) {
+		Tile[] a = new Tile[r1];
+		for(int i = 0 ; i < c ; i++) {
+			a[i] = data[n][i][1];
+		}
+		return a;
 	}
 
 	public void setData(int r, int c, int r1, Tile obj) {
