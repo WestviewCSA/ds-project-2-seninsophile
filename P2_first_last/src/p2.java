@@ -8,11 +8,10 @@ public class p2 {
 	
 	public static Map maze;
 	
-	
 	public static int numRows, numCols, numRooms;
 	
 	public static void main(String[] args) {
-		readMap("Example 2");
+		readMap("Example 1");
 		queueRoute();
 	}
 	
@@ -45,6 +44,7 @@ public class p2 {
 					r++;
 				}
 			}
+			System.out.println(maze);
 			scanner.close();
 		} catch (FileNotFoundException e) {
 			System.out.println(e);
@@ -73,23 +73,26 @@ public class p2 {
 				for(int c = 0 ; c < numCols; c++) {
 					char el = maze.getData(b, c, a).getType();
 					Tile tile = new Tile(b, c, el);
-					if(maze.getData(b, c, a).getType()==('W')) {
+					if(maze.getData(b, c, a).getType()=='W') {
 						queue.enqueue(tile);
-						visited.enqueue(tile);
+						visited.enqueue(queue.dequeue());
+					}
+					if(maze.getData(b, c, a).isWalkable()) {
+						if(maze.getData(b+1, c, a)!=null || maze.getData(b+1, c, a).getType()!='@') {
+							queue.enqueue(tile);
+						}
+						
+						if(maze.getData(b-1, c, a)!=null || maze.getData(b-1, c, a).getType()!='@') {
+							queue.enqueue(tile);
+						}
+						
+						if(maze.getData(b, c+1, a)!=null || maze.getData(b, c+1, a).getType()!='@') {
+							queue.enqueue(tile);
+						}
 					}
 				}
 			}
 		}
-		
-		// until coin is found do this
-		
-		while(queue.peek().getType()!='$') {
-
-			
-			
-			
-			
-			
-		}
+		System.out.println(visited);
 	}
 }
